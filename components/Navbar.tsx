@@ -1,0 +1,58 @@
+import Link from "next/link";
+import Image from "next/image";
+import logo from "@/app/favicon.ico";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+// import { ModeToggle } from "./ModeToggle";
+
+const Navbar = () => {
+  return (
+    <nav className="bg-[#1e1e1e] text-white px-6 py-3 flex items-center justify-between w-full max-w-6xl mx-auto rounded-md shadow-md">
+      {/* Left: Logo */}
+      <Link href="/" className="flex items-center gap-3">
+        <span className="font-semibold text-lg">Dashboard</span>
+      </Link>
+
+      {/* Right: User Menu */}
+      <div className="flex items-center gap-4 p-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="focus:outline-none">
+            <Avatar className="cursor-pointer ring-2 ring-transparent hover:ring-white transition">
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                alt="@shadcn"
+              />
+              <AvatarFallback className="text-black bg-gray-200">
+                BT
+              </AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="w-40 bg-[#1e1e1e] text-white border border-[#2a2a2a]">
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator className="bg-[#2a2a2a]" />
+            <DropdownMenuItem className="cursor-pointer hover:bg-[#2a2a2a]">
+              Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer hover:bg-[#2a2a2a]">
+              Billing
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer text-red-500 hover:bg-[#2a2a2a]">
+              Logout
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </nav>
+  );
+};
+
+
+export default Navbar;
