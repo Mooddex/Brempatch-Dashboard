@@ -53,13 +53,17 @@ const chartConfig = {
     color: "var(--chart-5)",
   },
 } satisfies ChartConfig
+ interface ChartCardProbs {
+  title : string;
+  discription : string ;
+ }
 
-export function ChartPieLabel() {
+export function ChartPieLabel({title,discription}:ChartCardProbs) {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart - Label</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription> {discription} </CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer

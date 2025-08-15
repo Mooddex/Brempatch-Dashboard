@@ -1,4 +1,5 @@
 import { ChartLineInteractive } from "@/components/ChartLine";
+import { ChartTooltipDefault } from "@/components/ChartTooltip";
 import { ChartPieLabel } from "@/components/CircleChart";
 import DashboardCard from "@/components/DashboardCard";
 import Navbar from "@/components/Navbar";
@@ -14,20 +15,20 @@ export default function Home() {
 
       <div className="px-6 space-y-6">
         {/* Cards Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ml-6">
           <DashboardCard
             title="Total Sales"
-            count={10000}
+            value={10000}
             icon={<DollarSign />}
           />
           <DashboardCard
             title="Total Clients"
-            count={1045845850}
+            value={1000}
             icon={<Users />}
           />
           <DashboardCard
             title="Total Products"
-            count={10000}
+            value={10000}
             icon={<ShoppingBag />}
           />
         </div>
@@ -40,9 +41,24 @@ export default function Home() {
 
           <div className="bg-[#1e1e1e] p-4 rounded-lg shadow-md">
             {/* You can add another chart or table here */}
-            <ChartPieLabel />
-            Placeholder for Pie Chart or Bar Chart
+            <ChartPieLabel
+            title="Category Distrpution"
+            discription=""
+            />
           </div>
+           <div className="bg-[#1e1e1e] p-4 rounded-lg shadow-md">
+            {/* You can add another chart or table here */}
+            <ChartPieLabel
+            title="Order Status Distrbution"
+            discription=""
+
+            />
+          </div>
+          <div className="bg-[#1e1e1e] p-4 rounded-lg shadow-md">
+            {/* You can add another chart or table here */}
+            <ChartTooltipDefault />
+          </div>
+          
         </div>
       </div>
     </div>

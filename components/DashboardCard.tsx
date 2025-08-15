@@ -6,11 +6,11 @@ import { LucideIcon } from "lucide-react";
 
 interface DasboardCardProps {
     title:string;
-    count:number;
+    value:number;
     icon: React.ReactElement<LucideIcon>
 }
 
-const DasboardCard = ({title,count,icon}: DasboardCardProps ) => {
+const DasboardCard = ({title,value,icon}: DasboardCardProps ) => {
     return ( 
         <Card className='bg-slate-100 dark:bg-slate-800 p-4 pb-0'>
       <CardContent>
@@ -20,7 +20,7 @@ const DasboardCard = ({title,count,icon}: DasboardCardProps ) => {
         <div className='flex gap-5 justify-center items-center'>
           {icon}
           <h3 className='text-5xl font-semibold text-slate-500 dark:text-slate-200'>
-            {count}
+            {value}
           </h3>
         </div>
       </CardContent>

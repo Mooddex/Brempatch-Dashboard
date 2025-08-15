@@ -15,12 +15,12 @@ import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, Do
     const items = [
   {
     title: "Dashboard",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
     title: "Products",
-    url: "#",
+    url: "/products",
     icon: ShoppingBasket,
   },
   {

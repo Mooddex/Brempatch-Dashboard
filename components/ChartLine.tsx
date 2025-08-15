@@ -115,7 +115,7 @@ const chartData = [
 
 const chartConfig = {
   views: {
-    label: "Page Views",
+    label: "Sales",
   },
   desktop: {
     label: "Desktop",
@@ -143,9 +143,9 @@ export function ChartLineInteractive() {
     <Card className="py-4 sm:py-0">
       <CardHeader className="flex flex-col items-stretch border-b !p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 pb-3 sm:pb-0">
-          <CardTitle>Line Chart - Interactive</CardTitle>
+          <CardTitle>Sales Overview</CardTitle>
           <CardDescription>
-            Showing total visitors for the last 3 months
+            Showing total Sales for the last 3 months
           </CardDescription>
         </div>
         <div className="flex">
