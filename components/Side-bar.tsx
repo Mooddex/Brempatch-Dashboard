@@ -25,13 +25,13 @@ import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, Do
   },
   {
     title: "Orders",
-    url: "#",
+    url: "orders",
     icon: ShoppingCart,
   },
   
   {
     title: "Clients",
-    url: "#",
+    url: "clients",
     icon: Users,
   },
   {
@@ -67,7 +67,7 @@ export default function SideBar(){
     <Sidebar collapsible='icon'>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
+          <SidebarGroupLabel></SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

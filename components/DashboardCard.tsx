@@ -3,11 +3,21 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import { LucideIcon } from "lucide-react";
+import { ReactElement, ReactNode } from "react";
+
 
 interface DasboardCardProps {
-    title:string;
-    value:number;
-    icon: React.ReactElement<LucideIcon>
+  title: string;
+  value: any| string | number;
+  icon: ReactElement<LucideIcon>;
+  trend?: string; // Optional trend text like "+12% from last month"
+  trendUp?: boolean; // Optional trend direction
+  subtitle?: string; // Optional subtitle or description
+  color?: 'blue' | 'green' | 'red' | 'yellow' | 'purple' | 'gray'; // Theme colors
+  onClick?: () => void; // Optional click handler
+  loading?: boolean; // Loading state
+  className?: string; // Additional CSS classes
+  children?: ReactNode; // For custom content
 }
 
 const DasboardCard = ({title,value,icon}: DasboardCardProps ) => {
