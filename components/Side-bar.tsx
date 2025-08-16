@@ -34,11 +34,7 @@ import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, Do
     url: "clients",
     icon: Users,
   },
-  {
-    title: "Sales",
-    url: "#",
-    icon: DollarSign,
-  },
+
   {
     title: "Messages",
     url: "#",

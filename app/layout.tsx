@@ -48,9 +48,9 @@ export default function RootLayout({
               <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-4 px-4 py-2">
                   <SidebarTrigger className="lg:hidden" />
-                  {/* <div className="flex-1">
+                  <div className="flex-1">
                     <Navbar />
-                  </div> */}
+                  </div>
                 </div>
               </header>
 

@@ -1,6 +1,9 @@
+"use client"
+
 import { DataTable } from "@/components/Data-table"
 import { columns } from "@/lib/orders/columns"
-import data from "@/data/orders.json" // direct import
+import { fetchOrders } from "@/lib/api"
+import { useState, useEffect } from "react"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import DashboardCard from "@/components/DashboardCard"
@@ -15,7 +18,17 @@ import {
 } from "lucide-react"
 
 export default function OrdersDashboard() {
-  // Calculate dynamic values from data - FIXED LOGIC
+  const [data, setData] = useState<any[]>([])
+    const [loading, setLoading] = useState(true)
+  
+    useEffect(() => {
+      fetchOrders()
+        .then(setData)
+        .catch(console.error)
+        .finally(() => setLoading(false))
+    }, [])
+
+
   const totalOrders = data.length
   const completedOrders = data.filter(order => order.status === 'completed').length
   const canceledOrders = data.filter(order => order.status === 'cancelled').length
@@ -91,10 +104,12 @@ export default function OrdersDashboard() {
             </div>
           </CardHeader>
           
-          <CardContent className="p-0">
-            <div className="p-6">
-              <DataTable columns={columns} data={data} />
-            </div>
+         <CardContent className="p-6">
+          {loading ? (
+           <p className="text-center text-gray-500">Loading...</p>
+            ) : (
+            <DataTable columns={columns} data={data} />
+            )}
           </CardContent>
         </Card>
       </div>

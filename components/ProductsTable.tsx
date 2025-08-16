@@ -1,6 +1,9 @@
+"use client"
+
 import { DataTable } from "@/components/Data-table"
 import { columns } from "@/lib/products/columns"
-import data from "@/data/pd2.json" // direct import
+import { fetchProducts } from "@/lib/api"
+import { useState, useEffect } from "react"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import DashboardCard from "@/components/DashboardCard"
@@ -13,12 +16,23 @@ import {
 } from "lucide-react"
 
 export default function ProductsTable() {
+    const [data, setData] = useState<any[]>([])
+      const [loading, setLoading] = useState(true)
+    
+      useEffect(() => {
+        fetchProducts()
+          .then(setData)
+          .catch(console.error)
+          .finally(() => setLoading(false))
+      }, [])
   // Calculate dynamic values from data
   const totalProducts = data.length
   const totalStock = data.reduce((sum, product) => sum + (Number(product.Stock) || 0), 0)
   const totalCategories = new Set(data.map(product => product.Category)).size
-  const totalSold = data.reduce((sum, product) => sum + (Number(product.Sales) || 0), 0)
-
+const totalSold = data.reduce((sum, product) => {
+  const sales = parseInt(String(product.Sales).replace(/[^0-9.-]/g, ""), 10)
+  return sum + (isNaN(sales) ? 0 : sales)
+}, 0)
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4 py-8 space-y-8">
@@ -89,10 +103,12 @@ export default function ProductsTable() {
             </div>
           </CardHeader>
           
-          <CardContent className="p-0">
-            <div className="p-6">
-              <DataTable columns={columns} data={data} />
-            </div>
+          <CardContent className="p-6">
+            {loading ? (
+           <p className="text-center text-gray-500">Loading...</p>
+            ) : (
+            <DataTable columns={columns} data={data} />
+            )}
           </CardContent>
         </Card>
 

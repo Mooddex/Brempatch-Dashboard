@@ -8,7 +8,7 @@ export type Products = {
   name: string
   Category: string
   price: string
-  Stock:string
+  Stock:number
   Sales:string
 }
 
