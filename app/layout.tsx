@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -15,12 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// SEO + OpenGraph metadata
 export const metadata: Metadata = {
   title: "Dashboard App",
   description: "Modern dashboard application with analytics and management tools",
   keywords: ["dashboard", "analytics", "management", "admin"],
   authors: [{ name: "Your Name" }],
-  viewport: "width=device-width, initial-scale=1",
+};
+
+// ✅ viewport must be exported separately in Next.js 13+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
