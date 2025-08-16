@@ -36,7 +36,7 @@ interface QuickAction {
 export default function Home() {
   // Sample data - in a real app, this would come from props, context, or API
   const dashboardData: DashboardData = {
-    totalSales: 125780,
+    totalSales: 1280,
     totalClients: 1247,
     totalProducts: 856,
     monthlyGrowth: 12.5,

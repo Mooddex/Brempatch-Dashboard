@@ -1,32 +1,58 @@
-# My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+# 📊 My Dashboard
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+A modern, responsive dashboard built with **Next.js**, **Shadcn UI**, and **TailwindCSS**. It provides clean data visualization, tables, and interactive UI components to help users manage and monitor information efficiently.
 
-![alt tag](http://placecorgi.com/1200/650)
+**🔗 Live Demo:** [Visit Dashboard](https://brempatch-dashboard.vercel.app/)
 
-## How It's Made:
+![Dashboard Screenshot](https://res.cloudinary.com/deq0w5tnr/image/upload/v1755384048/screencapture-localhost-3000-2025-08-17-00_33_01_fjr9hn.png)
 
-**Tech used:** Next.js, Shadcn, TailwindCSS 
+---
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write *something*. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+## 🧰 Tech Stack
 
-## Optimizations
-*(optional)*
+* ⚡ **Framework:** Next.js (App Router) + TypeScript
+* 🎨 **Styling:** Tailwind CSS + Shadcn UI
+* 📊 **Data Display:** TanStack Table + Recharts
+* 🔄 **State Management:** React Server Components & Context API
 
-You don't have to include this section but interviewers *love* that you can not only deliver a final product that looks great but also functions efficiently. Did you write something then refactor it later and the result was 5x faster than the original implementation? Did you cache your assets? Things that you write in this section are **GREAT** to bring up in interviews and you can use this section as reference when studying for technical interviews!
+---
 
-## Lessons Learned:
+## 🧩 Core Features
 
-No matter what your experience level, being an engineer means continuously learning. Every time you build something you always have those *whoa this is awesome* or *wow I actually did it!* moments. This is where you should share those moments! Recruiters and interviewers love to see that you're self-aware and passionate about growing.
+| Status | Feature                                                 |
+| ------ | ------------------------------------------------------- |
+| ✅      | 📊 **Dashboard Stats Cards** (Sales, Clients, Products) |
+| ✅      | 📈 **Charts & Graphs** (mock data integrated)           |
+| ✅      | 📋 **Dynamic Data Tables** (with sorting/filtering)     |
+| ✅      | 📱 **Responsive Layout**                                |
+| ✅      | 🎨 **Reusable UI Components** with Shadcn UI            |
 
-## Examples:
-Take a look at these couple examples that I have in my own portfolio:
+---
 
-**Palettable:** https://github.com/alecortega/palettable
+## 🚧 Upcoming Features
 
-**Twitter Battle:** https://github.com/alecortega/twitter-battle
+* 🌍 **Internationalization (i18n)**
+* 👤 **User Authentication & Roles**
+* 📑 **Export Reports (PDF/CSV)**
+* ⚡ **Real API Integration**
 
-**Patch Panel:** https://github.com/alecortega/patch-panel
+---
 
+## 📚 Lessons Learned
 
+* How to integrate **Shadcn UI + TailwindCSS** for a scalable design system.
+* The importance of **data structuring** when working with charts and tables.
+* How to keep a project modular using **separation of concerns**.
+* Learned strategies for optimizing dashboards for **speed and maintainability**.
+
+---
+
+---
+
+## 🔗 More Projects by Me
+
+* **My Office (Legal Case Manager)** – [GitHub](https://github.com/Mooddex/my-office)
+* **Matbakhy** – [GitHub](https://github.com/Mooddex/matbakhy)
+* **Blogbook Website** – [GitHub](https://github.com/Mooddex/Blogbook)
+
+---
