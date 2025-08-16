@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ModeToggle } from "./ModeToggle";
 // import { ModeToggle } from "./ModeToggle";
 
 const Navbar = () => {
@@ -22,6 +23,7 @@ const Navbar = () => {
 
       {/* Right: User Menu */}
       <div className="flex items-center gap-4 p-4">
+        <ModeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
             <Avatar className="cursor-pointer ring-2 ring-transparent hover:ring-white transition">
