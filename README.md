@@ -1,4 +1,4 @@
-# 📊 My Dashboard
+# 📊 Brempatch Dashboard
 
 A modern, responsive dashboard built with **Next.js**, **Shadcn UI**, and **TailwindCSS**. It provides clean data visualization, tables, and interactive UI components to help users manage and monitor information efficiently.
 
