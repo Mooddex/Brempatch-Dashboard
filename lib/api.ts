@@ -15,3 +15,10 @@ export async function fetchProducts() {
   if (!res.ok) throw new Error("Failed to load products")
   return res.json()
 }
+
+export async function fetchMessages() {
+  const res = await fetch("https://my.api.mockaroo.com/message.json?key=0fc28bb0")
+  if (!res.ok) throw new Error("Failed to load products")
+  return res.json()
+}
+

@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, DollarSign, Mail, ShoppingBasket, Bell, Info } from "lucide-react";
+import { Home, Settings, ShoppingCart, Mail, ShoppingBasket, Bell, Info, Users } from "lucide-react";
 
     const items = [
   {
@@ -20,7 +20,7 @@ import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, Do
   },
   {
     title: "Products",
-    url: "/products",
+    url: "products",
     icon: ShoppingBasket,
   },
   {
@@ -37,22 +37,22 @@ import { Home, Inbox, Calendar, Search, Settings, icons, ShoppingCart, Users, Do
 
   {
     title: "Messages",
-    url: "#",
+    url: "messages",
     icon: Mail,
   },
   {
     title: "Settings",
-    url: "#",
+    url: "/",
     icon: Settings,
   },
     {
     title: "Notifications",
-    url: "#",
+    url: "/",
     icon: Bell,
   },
     {
     title: "Help",
-    url: "#",
+    url: "/",
     icon: Info,
   },
 

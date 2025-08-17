@@ -1,12 +1,12 @@
 "use client"
 
 import { DataTable } from "@/components/Data-table"
-import { columns } from "@/lib/orders/columns"
+import { columns } from "@/components/_columns/Orders-columns"
 import { fetchOrders } from "@/lib/api"
 import { useState, useEffect } from "react"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import DashboardCard from "@/components/DashboardCard"
+import DashboardCard from "@/components/_cards/DashboardCard"
 import { 
   DollarSign, 
   Package, 
@@ -49,33 +49,33 @@ export default function OrdersDashboard() {
 
         {/* Stats Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Total Orders"
+              title="Orders"
               value={totalOrders}
               icon={<Package className="w-6 h-6" />}
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Completed Orders"
+              title="Completed"
               value={completedOrders}
               icon={<Warehouse className="w-6 h-6" />}
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Pending Orders"
+              title="Pending"
               value={pendingOrders}
               icon={<Clock className="w-6 h-6" />}
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Canceled Orders"
+              title="Canceled"
               value={canceledOrders}
               icon={<XCircle className="w-6 h-6" />}
             />
@@ -84,7 +84,7 @@ export default function OrdersDashboard() {
 
         {/* Orders Table Card */}
         <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-t-lg">
+          <CardHeader >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Package className="w-8 h-8" />

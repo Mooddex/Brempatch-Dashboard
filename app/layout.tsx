@@ -5,6 +5,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import SideBar from "@/components/Side-bar";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import FooterComp from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   title: "Dashboard App",
   description: "Modern dashboard application with analytics and management tools",
   keywords: ["dashboard", "analytics", "management", "admin"],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Mahmoud Salama" }],
 };
 
 export const viewport: Viewport = {
@@ -30,9 +31,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
@@ -40,56 +41,25 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="antialiased bg-background text-foreground min-h-screen">
-        {/* ✅ ThemeProvider should wrap the entire app */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SidebarProvider>
             <div className="flex min-h-screen w-full">
-              {/* Sidebar */}
               <SideBar />
 
-              {/* Main Content Area */}
-              <div className="flex-1 flex flex-col">
-                {/* Top Navbar */}
+              <div className="flex flex-1 flex-col">
                 <header className="sticky top-0 z-40 bg-card/80 backdrop-blur-sm border-b border-border">
-                  <div className="flex items-center gap-4 px-4 py-2">
-                    <SidebarTrigger className="lg:hidden" />
-                    <div className="flex-1">
-                      <Navbar />
-                    </div>
-                  </div>
+           <Navbar />
+            <div className="flex items-center gap-4 px-4 py-2">
+              <SidebarTrigger className="lg:hidden" />
+            </div>
+
                 </header>
 
-                {/* Main Content */}
-                <main className="flex-1 overflow-auto">
-                  <div className="container mx-auto px-4 py-6">
-                    {children}
-                  </div>
+                <main className="">
+                  <div className="container mx-auto px-4 py-6">{children}</div>
                 </main>
 
-                {/* Footer */}
-                <footer className="border-t border-border bg-card/50 backdrop-blur-sm">
-                  <div className="container mx-auto px-4 py-4">
-                    <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-muted-foreground">
-                      <p>&copy; 2024 Dashboard App. All rights reserved.</p>
-                      <div className="flex gap-4 mt-2 sm:mt-0">
-                        <a href="#" className="hover:text-foreground transition-colors">
-                          Privacy
-                        </a>
-                        <a href="#" className="hover:text-foreground transition-colors">
-                          Terms
-                        </a>
-                        <a href="#" className="hover:text-foreground transition-colors">
-                          Support
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
+                <FooterComp />
               </div>
             </div>
           </SidebarProvider>

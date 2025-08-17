@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react"
 import { DataTable } from "@/components/Data-table"
-import { columns } from "@/lib/clients/columns"
+import { columns } from "@/components/_columns/clients-columns"
 import { fetchClients } from "@/lib/api"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import DashboardCard from "@/components/DashboardCard"
+import DashboardCard from "@/components/_cards/DashboardCard"
 import { Users, Globe, Mail, Phone } from "lucide-react"
 
 export default function ClientsDashboard() {
@@ -22,7 +22,7 @@ export default function ClientsDashboard() {
 
   // ✅ Stats
   const totalClients = data.length
-  const countries = new Set(data.map(client => client.country)).size
+  // const countries = new Set(data.map(client => client.country)).size
   const gmailClients = data.filter(client => client.email.includes("@gmail.com")).length
   const totalCountries = data.filter(client => client.country).length
 
@@ -42,15 +42,14 @@ export default function ClientsDashboard() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <DashboardCard title="Total Clients" value={totalClients} icon={<Users className="w-6 h-6" />} />
-          <DashboardCard title="Unique Countries" value={countries} icon={<Globe className="w-6 h-6" />} />
-          <DashboardCard title="Gmail Clients" value={gmailClients} icon={<Mail className="w-6 h-6" />} />
-          <DashboardCard title="Total Countries" value={totalCountries} icon={<Phone className="w-6 h-6" />} />
+          <DashboardCard title="Clients" value={totalClients} icon={<Users className="w-6 h-6" />} />
+          <DashboardCard title=" With Gmail" value={gmailClients} icon={<Mail className="w-6 h-4" />} />
+          <DashboardCard title="Countries" value={totalCountries} icon={<Phone className="w-6 h-4" />} />
         </div>
 
         {/* Clients Table */}
         <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-t-lg">
+          <CardHeader className="">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Users className="w-8 h-8" />

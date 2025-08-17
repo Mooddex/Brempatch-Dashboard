@@ -1,14 +1,13 @@
 "use client"
 
 import { DataTable } from "@/components/Data-table"
-import { columns } from "@/lib/products/columns"
+import { columns } from "@/components/_columns/product-columns"
 import { fetchProducts } from "@/lib/api"
 import { useState, useEffect } from "react"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import DashboardCard from "@/components/DashboardCard"
+import DashboardCard from "@/components/_cards/DashboardCard"
 import { 
-  DollarSign, 
   Package, 
   Warehouse, 
   Grid3X3, 
@@ -48,23 +47,23 @@ const totalSold = data.reduce((sum, product) => {
 
         {/* Stats Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Total Products"
+              title="Products"
               value={totalProducts}
               icon={<Package className="w-6 h-6" />}
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Total Stock"
+              title="Stock"
               value={totalStock}
               icon={<Warehouse className="w-6 h-6" />}
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
               title="Categories"
               value={totalCategories}
@@ -72,9 +71,9 @@ const totalSold = data.reduce((sum, product) => {
             />
           </div>
           
-          <div className="transform hover:scale-105 transition-transform duration-300">
+          <div className="">
             <DashboardCard
-              title="Total Sold"
+              title="Sold"
               value={totalSold}
               icon={<TrendingUp className="w-6 h-6" />}
             />
@@ -83,7 +82,7 @@ const totalSold = data.reduce((sum, product) => {
 
         {/* Products Table Card */}
         <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-t-lg">
+          <CardHeader >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Package className="w-8 h-8" />

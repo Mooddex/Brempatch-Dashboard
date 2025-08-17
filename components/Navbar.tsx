@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/app/favicon.ico";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import {
   DropdownMenu,
@@ -11,18 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "./ModeToggle";
-// import { ModeToggle } from "./ModeToggle";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#1e1e1e] text-white px-6 py-3 flex items-center justify-between w-full max-w-6xl mx-auto rounded-md shadow-md">
+    <nav className="flex items-center justify-between px-6 py-3">
       {/* Left: Logo */}
       <Link href="/" className="flex items-center gap-3">
         <span className="font-semibold text-lg">Dashboard</span>
       </Link>
 
       {/* Right: User Menu */}
-      <div className="flex items-center gap-4 p-4">
+      <div className="flex items-center gap-4">
         <ModeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
@@ -32,7 +30,7 @@ const Navbar = () => {
                 alt="@shadcn"
               />
               <AvatarFallback className="text-black bg-gray-200">
-                BT
+                MS
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
@@ -55,6 +53,5 @@ const Navbar = () => {
     </nav>
   );
 };
-
 
 export default Navbar;
