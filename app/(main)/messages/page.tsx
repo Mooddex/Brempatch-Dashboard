@@ -1,4 +1,4 @@
-import MessagesDashboard from "@/components/_cards/MessagesDashboard";
+import MessagesDashboard from "@/components/_mainDasboards/MessagesDashboard";
 
 const MessagesPage = () => {
     return ( 

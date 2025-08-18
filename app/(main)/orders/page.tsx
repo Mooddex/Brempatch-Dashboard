@@ -1,4 +1,4 @@
-import OrdersDashboard from "@/components/_cards/OrderDashboard";
+import OrdersDashboard from "@/components/_mainDasboards/OrderDashboard";
 
 const ordersPage = () => {
   return ( 

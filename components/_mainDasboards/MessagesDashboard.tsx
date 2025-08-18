@@ -7,6 +7,7 @@ import { columns } from "@/components/_columns/Messages-columns";
 import { Users, Mail, Phone, MailIcon } from "lucide-react";
 import { fetchMessages } from "@/lib/api";
 import { useEffect, useState } from "react";
+import ResponsiveCard from "../_cards/ResponsiveDTCard";
 
 const MessagesDashboard = () => {
   const [data, setData] = useState<any[]>([])
@@ -48,6 +49,7 @@ const MessagesDashboard = () => {
         </div>
 
         {/* Clients Table */}
+        <div className="hidden sm:block">
         <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
           <CardHeader className="">
             <div className="flex items-center justify-between">
@@ -75,6 +77,18 @@ const MessagesDashboard = () => {
             )}
           </CardContent>
         </Card>
+        </div>
+ {/* Mobile responsive card with popup */}
+        <div className="sm:hidden">
+          <ResponsiveCard title="Messages Table">
+            {loading ? (
+              <p className="text-center text-gray-500">Loading...</p>
+            ) : (
+              <DataTable data={data} columns={columns} />
+            )}
+          </ResponsiveCard>
+        </div>
+
       </div>
     </div>
   )

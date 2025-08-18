@@ -6,13 +6,16 @@ import { fetchProducts } from "@/lib/api"
 import { useState, useEffect } from "react"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import DashboardCard from "@/components/_cards/DashboardCard"
 import { 
   Package, 
   Warehouse, 
-  Grid3X3, 
   TrendingUp 
 } from "lucide-react"
+import { TotalSalesCard } from "../_cards/TotalSalesCard"
+import { ProductCategoryCard } from "../_cards/ProductCategoriesCard"
+import { TotalStockCard } from "../_cards/TotalStockCard"
+import { TotalProductsCard } from "../_cards/TotalProducts"
+import ResponsiveCard from "../_cards/ResponsiveDTCard"
 
 export default function ProductsTable() {
     const [data, setData] = useState<any[]>([])
@@ -24,14 +27,6 @@ export default function ProductsTable() {
           .catch(console.error)
           .finally(() => setLoading(false))
       }, [])
-  // Calculate dynamic values from data
-  const totalProducts = data.length
-  const totalStock = data.reduce((sum, product) => sum + (Number(product.Stock) || 0), 0)
-  const totalCategories = new Set(data.map(product => product.Category)).size
-const totalSold = data.reduce((sum, product) => {
-  const sales = parseInt(String(product.Sales).replace(/[^0-9.-]/g, ""), 10)
-  return sum + (isNaN(sales) ? 0 : sales)
-}, 0)
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4 py-8 space-y-8">
@@ -48,40 +43,25 @@ const totalSold = data.reduce((sum, product) => {
         {/* Stats Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="">
-            <DashboardCard
-              title="Products"
-              value={totalProducts}
-              icon={<Package className="w-6 h-6" />}
-            />
+            <TotalProductsCard />
           </div>
           
           <div className="">
-            <DashboardCard
-              title="Stock"
-              value={totalStock}
-              icon={<Warehouse className="w-6 h-6" />}
-            />
+            <TotalStockCard />
           </div>
           
           <div className="">
-            <DashboardCard
-              title="Categories"
-              value={totalCategories}
-              icon={<Grid3X3 className="w-6 h-6" />}
-            />
+            <ProductCategoryCard />
           </div>
           
           <div className="">
-            <DashboardCard
-              title="Sold"
-              value={totalSold}
-              icon={<TrendingUp className="w-6 h-6" />}
-            />
+            <TotalSalesCard />
           </div>
         </div>
 
-        {/* Products Table Card */}
-        <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
+{/* Desktop Clients Table */}
+        <div className="hidden sm:block">
+                <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
           <CardHeader >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -110,9 +90,20 @@ const totalSold = data.reduce((sum, product) => {
             )}
           </CardContent>
         </Card>
+        </div>
+      {/* Mobile responsive card with popup */}
+        <div className="sm:hidden">
+          <ResponsiveCard title="Products Table">
+            {loading ? (
+              <p className="text-center text-gray-500">Loading...</p>
+            ) : (
+              <DataTable data={data} columns={columns} />
+            )}
+          </ResponsiveCard>
+        </div>
 
         {/* Quick Actions Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className=" grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-green-500 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20">
             <div className="flex items-center space-x-3">
               <div className="p-3 bg-green-100 dark:bg-green-800 rounded-full">

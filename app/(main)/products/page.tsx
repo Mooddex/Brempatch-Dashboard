@@ -1,4 +1,4 @@
-import ProductsTable from "@/components/_cards/ProductsTable";
+import ProductsTable from "@/components/_mainDasboards/ProductsTable";
 
 const productsPage = () => {
   return ( 

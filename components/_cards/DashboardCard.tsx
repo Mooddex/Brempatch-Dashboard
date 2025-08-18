@@ -20,10 +20,11 @@ interface DasboardCardProps {
   children?: ReactNode; // For custom content
 }
 
-const DasboardCard = ({title,value,icon}: DasboardCardProps ) => {
+const DasboardCard = ({title,value,icon,className}: DasboardCardProps ) => {
     return ( 
       <div className="transform hover:scale-105 transition-transform duration-300">
-        <Card className='bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-t-lg cursor-pointer'>
+        <Card   className={`bg-gradient-to-r from-blue-600 to-indigo-600 
+              text-white rounded-t-lg cursor-pointer h-full ${className}`}>
       <CardContent>
         <h3 className='text-3xl text-center mb-4 font-bold text-white-500 dark:text-slate-200'>
           {title}
@@ -41,3 +42,4 @@ const DasboardCard = ({title,value,icon}: DasboardCardProps ) => {
 }
  
 export default DasboardCard;
+

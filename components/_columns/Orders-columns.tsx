@@ -17,6 +17,6 @@ export const columns: ColumnDef<Order>[] = [
   { accessorKey: "client", header: "Client" },
   { accessorKey: "total", header: "Category" },
   { accessorKey: "status", header: "status" },
-  { accessorKey: "date", header: "Stock" },
-  { accessorKey: "country", header: "Sales" }
+  { accessorKey: "date", header: "Date" },
+  { accessorKey: "country", header: "State" }
 ]

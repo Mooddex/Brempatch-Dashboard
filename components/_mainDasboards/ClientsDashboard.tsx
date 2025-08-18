@@ -7,7 +7,9 @@ import { fetchClients } from "@/lib/api"
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import DashboardCard from "@/components/_cards/DashboardCard"
-import { Users, Globe, Mail, Phone } from "lucide-react"
+import { Users, Mail, Phone } from "lucide-react"
+import { TotalClientsCard } from "../_cards/TotalClients"
+import ResponsiveCard from "../_cards/ResponsiveDTCard"
 
 export default function ClientsDashboard() {
   const [data, setData] = useState<any[]>([])
@@ -21,8 +23,6 @@ export default function ClientsDashboard() {
   }, [])
 
   // ✅ Stats
-  const totalClients = data.length
-  // const countries = new Set(data.map(client => client.country)).size
   const gmailClients = data.filter(client => client.email.includes("@gmail.com")).length
   const totalCountries = data.filter(client => client.country).length
 
@@ -42,39 +42,52 @@ export default function ClientsDashboard() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <DashboardCard title="Clients" value={totalClients} icon={<Users className="w-6 h-6" />} />
-          <DashboardCard title=" With Gmail" value={gmailClients} icon={<Mail className="w-6 h-4" />} />
+          <TotalClientsCard />
+          <DashboardCard title="With Gmail" value={gmailClients} icon={<Mail className="w-6 h-4" />} />
           <DashboardCard title="Countries" value={totalCountries} icon={<Phone className="w-6 h-4" />} />
         </div>
 
-        {/* Clients Table */}
-        <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
-          <CardHeader className="">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <Users className="w-8 h-8" />
-                <div>
-                  <CardTitle className="text-2xl font-bold">Clients Management</CardTitle>
-                  <p className="text-blue-100 mt-1">Complete list of all clients in your system</p>
+        {/* Desktop Clients Table */}
+        <div className="hidden sm:block">
+          <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <Users className="w-8 h-8" />
+                  <div>
+                    <CardTitle className="text-2xl font-bold">Clients Management</CardTitle>
+                    <p className="text-blue-100 mt-1">Complete list of all clients in your system</p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="text-sm text-blue-100">Last Updated</div>
+                  <div className="text-lg font-semibold">
+                    {new Date().toLocaleDateString()}
+                  </div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm text-blue-100">Last Updated</div>
-                <div className="text-lg font-semibold">
-                  {new Date().toLocaleDateString()}
-                </div>
-              </div>
-            </div>
-          </CardHeader>
+            </CardHeader>
 
-          <CardContent className="p-6">
+            <CardContent className="p-6">
+              {loading ? (
+                <p className="text-center text-gray-500">Loading...</p>
+              ) : (
+                <DataTable columns={columns} data={data} />
+              )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Mobile responsive card with popup */}
+        <div className="sm:hidden">
+          <ResponsiveCard title="Clients Table">
             {loading ? (
               <p className="text-center text-gray-500">Loading...</p>
             ) : (
-              <DataTable columns={columns} data={data} />
+              <DataTable data={data} columns={columns} />
             )}
-          </CardContent>
-        </Card>
+          </ResponsiveCard>
+        </div>
       </div>
     </div>
   )

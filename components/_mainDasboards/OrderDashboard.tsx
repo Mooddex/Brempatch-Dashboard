@@ -16,6 +16,7 @@ import {
   XCircle,
   Clock
 } from "lucide-react"
+import ResponsiveCard from "../_cards/ResponsiveDTCard"
 
 export default function OrdersDashboard() {
   const [data, setData] = useState<any[]>([])
@@ -30,7 +31,7 @@ export default function OrdersDashboard() {
 
 
   const totalOrders = data.length
-  const completedOrders = data.filter(order => order.status === 'completed').length
+  const completedOrders = data.filter(order => order.status === 'confirmed').length
   const canceledOrders = data.filter(order => order.status === 'cancelled').length
   const pendingOrders = data.filter(order => order.status === 'pending').length
 
@@ -83,6 +84,7 @@ export default function OrdersDashboard() {
         </div>
 
         {/* Orders Table Card */}
+        <div className="hidden sm:block">
         <Card className="w-full shadow-xl border-0 bg-white/80 backdrop-blur-sm dark:bg-gray-800/80">
           <CardHeader >
             <div className="flex items-center justify-between">
@@ -112,6 +114,17 @@ export default function OrdersDashboard() {
             )}
           </CardContent>
         </Card>
+        </div>
+         {/* Mobile responsive card with popup */}
+        <div className="sm:hidden">
+          <ResponsiveCard title="Clients Table">
+            {loading ? (
+              <p className="text-center text-gray-500">Loading...</p>
+            ) : (
+              <DataTable data={data} columns={columns} />
+            )}
+          </ResponsiveCard>
+        </div>
       </div>
     </div>
   )

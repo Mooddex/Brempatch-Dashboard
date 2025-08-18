@@ -1,4 +1,4 @@
-import ClientsDashboard from "@/components/_cards/ClientsDashboard";
+import ClientsDashboard from "@/components/_mainDasboards/ClientsDashboard";
 
 const clientsPage = () => {
   return ( 

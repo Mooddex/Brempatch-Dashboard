@@ -42,17 +42,17 @@ import { Home, Settings, ShoppingCart, Mail, ShoppingBasket, Bell, Info, Users }
   },
   {
     title: "Settings",
-    url: "/",
+    url: "settings",
     icon: Settings,
   },
     {
     title: "Notifications",
-    url: "/",
+    url: "notifications",
     icon: Bell,
   },
     {
     title: "Help",
-    url: "/",
+    url: "help",
     icon: Info,
   },
 

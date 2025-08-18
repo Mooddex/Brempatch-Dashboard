@@ -28,7 +28,7 @@ export function DataTable<TData, TValue>({
     <div className={`w-full ${className}`}>
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-900">
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse min-w-[800px]">
+          <table className="w-full border-collapse min-w-[600px] sm:min-w-[800px]">
             <thead>
               {table.getHeaderGroups().map(headerGroup => (
                 <tr 
@@ -57,9 +57,8 @@ export function DataTable<TData, TValue>({
                       group transition-all duration-200 ease-in-out
                       hover:bg-blue-50 hover:shadow-sm dark:hover:bg-gray-800/50
                       ${index % 2 === 0 
-                        ? 'bg-white dark:bg-gray-900' 
-                        : 'bg-gray-50/30 dark:bg-gray-800/30'
-                      }
+                        ? "bg-white dark:bg-gray-900" 
+                        : "bg-gray-50/30 dark:bg-gray-800/30"}
                     `}
                   >
                     {row.getVisibleCells().map(cell => (
@@ -128,6 +127,5 @@ export function DataTableWithLoading<TData, TValue>({
     )
   }
 
-  return <DataTableWithLoading columns={columns} data={data} isLoading={isLoading} />
-
+  return <DataTable columns={columns} data={data} className={className} />
 }
