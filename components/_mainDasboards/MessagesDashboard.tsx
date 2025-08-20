@@ -91,7 +91,7 @@ const MessagesDashboard = () => {
 
       </div>
     </div>
-  )
+  
         </div>
      );
 }
