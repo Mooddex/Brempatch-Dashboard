@@ -4,7 +4,7 @@ A modern, responsive dashboard built with **Next.js**, **Shadcn UI**, and **Tail
 
 **🔗 Live Demo:** [Visit Dashboard](https://brempatch-dashboard.vercel.app/)
 
-![Dashboard Screenshot](https://res.cloudinary.com/deq0w5tnr/image/upload/v1755384048/screencapture-localhost-3000-2025-08-17-00_33_01_fjr9hn.png)
+![Dashboard Screenshot](https://res.cloudinary.com/deq0w5tnr/image/upload/v1755636647/IMG_9085_dc9xvc.png)
 
 ---
 
